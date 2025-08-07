@@ -18,18 +18,14 @@ EventDispatcher.prototype.dispatchEvent = function (action, data) {
 
     if(connection) {
         connection.forEach(function (receiver, index, array) {
-            that.dispatchEventTo(receiver, action, data);
+            if(!receiver.async) {
+                receiver.func.call(receiver.context, action, data);
+            } else {
+                setTimeout(function () {
+                    receiver.func.call(receiver.context, action, data);
+                }, 0);
+            }
         });
-    }
-};
-
-EventDispatcher.prototype.dispatchEventTo = function (receiver, action, data) {
-    if(!receiver.async) {
-        receiver.func.call(receiver.context, action, data);
-    } else {
-        setTimeout(function () {
-            receiver.func.call(receiver.context, action, data);
-        }, 0);
     }
 };
 

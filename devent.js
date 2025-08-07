@@ -14,6 +14,9 @@ function bind(action, func, context) {
     });
 }
 
+/**
+ * 异步通知
+ */
 function bindAsync(action, func, context) {
     defaultDispatcher.addBinding(action, {
         func: func,
@@ -75,7 +78,7 @@ function autoUnbind(context) {
 
 const DEventActions = {
     OnLoginSuccess: "OnLoginSuccess",    // no params
-    OnLoginFailed: "OnLoginFailed",     //登录失败有三种类型1、微信授权登录失败 2、网络请求失败，微信的网络回调 3、业务层失败，目前还没有区分
+    OnLoginFailed: "OnLoginFailed",
 
     OnWssLoginSuccess: "OnWssLoginSuccess",
 
@@ -87,8 +90,6 @@ const DEventActions = {
     OnPushNotify: "OnPushNotify",
 
     OnNewGroupMessageNotify: "OnNewGroupMessageNotify",  //新聊天消息通知
-
-    OnDingMessageNotify: "OnDingMessageNotify", //钉新消息
 
     OnHttpRequestNeedLogin: "OnHttpRequestNeedLogin", //发协议需要登录时
 

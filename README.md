@@ -1,6 +1,6 @@
 # js_event_kvo
 
-一个用js实现的 kvo数据绑定 和 事件通知 工具，不仅限于UI层使用，在js也逐渐工程化的今天，需要一个不依赖UI纯在逻辑层使用的简单、可靠的事件和数据绑定框架；
+一个用js实现的 **kvo数据绑定** 和 **事件分发** 工具，不依赖UI层、可以纯在逻辑层使用、简单可靠；
 
 两者的核心都是event-dispatcher这个类，里面是一个派发中心，中心里是一个connections的map结构，以action(即事件名)为key，每个key下面挂载了一个接收者列表receiverList；
 
